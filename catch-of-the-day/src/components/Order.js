@@ -12,11 +12,7 @@ class Order extends Component {
   renderOrder(key) {
     const fish = this.props.fishes[key];
     const count = this.props.order[key];
-    const isAvailable = fish && fish.status === 'available';
-
-    // make sure the fish is loaded before continue
-    if (!fish) return null;
-
+    const isAvailable = fish.status === 'available';
     if (!isAvailable) {
       return <li key={key}>Sorry {fish ? fish.name : 'fish'} is no longer available</li>;
     }
